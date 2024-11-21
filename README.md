@@ -14,18 +14,19 @@ Na seção de requisitos do sistema os requisitos são divididos em dois grupos:
 - Desejável: é interessante se o requisito for implementado, porém não é obrigatório.
 
 ## Cenário
-A empresa ArrayEnterprises solicitou o desenvolvimento de um sistema de comentários para um novo produto que estão lançando. Como trata-se de um sistema que será utilizado por outros agentes então deve ser feito obrigatoriamente via API com entradas e saídas no formato JSON. Esse sistema deve manter os dados dos usuários que comentarem.
+A empresa solicitou o desenvolvimento de um sistema de comentários para um novo produto que estão lançando. Como trata-se de um sistema que será utilizado por outros agentes, então deve ser feito obrigatoriamente via API com entradas e saídas no formato JSON. Esse sistema deve manter os dados dos usuários que comentarem.
+
 ### Requisitos do sistema
 #### Obrigatórios:
 - O sistema deverá gerenciar os usuários, permitindo-os se cadastrar e editar seu cadastro;
 - O sistema poderá autenticar o usuário através do e-mail e senha do usuário e, nas outras requisições, utilizar apenas um token de identificação;
 - O sistema deverá retornar comentários a todos que o acessarem, porém deverá permitir inserir comentários apenas a usuários autenticados;
 - O sistema deverá retornar qual é o autor do comentário e dia e horário da postagem;
-- O sistema não deverá possuir número mínimo de comentário por usuário.
+- O Readme.md do projeto deverá conter de forma curta e objetiva uma breve explicação de onde e como cada um dos critérios (obrigatórios e desejaveis) busca ser atendido.
 #### Desejáveis:
 - O sistema deverá permitir o usuário editar os próprios comentários (exibindo a data de criação do comentário e data da última edição);
 - O sistema deverá possuir histórico de edições do comentário;
 - O sistema deverá permitir o usuário excluir os próprios comentários;
 - O sistema deverá possuir um usuário administrador que pode excluir todos os comentários;
 - O sistema deverá criptografar a senha do usuário;
-- O sistema deverá permitir o usuário fazer o upload de uma foto de perfil e exibi-la nos comentários desse usuário.
+- Implementação de testes automatizados utilizando phpunit
