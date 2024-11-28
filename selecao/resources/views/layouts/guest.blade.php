@@ -12,12 +12,15 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+        <link rel="stylesheet" type="text/css" href="css/estilo_base.css">
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="bg-gray-100" style="position: absolute; width: 100%;">
+            @include('layouts.navigation')
+        </div>
+        <div class="font-sans text-gray-900 antialiased" style="height: 100%; display: flex; justify-content: center; flex-direction: column;">
             {{ $slot }}
         </div>
     </body>
