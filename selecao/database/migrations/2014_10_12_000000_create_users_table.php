@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->timestamp('dt_exclusao')->nullable(); // Campo usado para exclusão lógica.
+            $table->string('userType')->default(2); // Todo usuario criado terá as permissões basicas.
             $table->rememberToken();
             $table->timestamps();
         });
