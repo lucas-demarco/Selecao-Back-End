@@ -4,10 +4,10 @@ html {
 }
 
 body {
-    height: 100%;
-    background: linear-gradient(#8b80f9, #212123) no-repeat;
-    font-family: "Open Sans", sans-serif;
-    margin: 0;
+    background: linear-gradient(#8b80f9, #212123) no-repeat !important;
+    font-family: "Open Sans", sans-serif !important;
+    margin: 0 !important;
+    overflow-y: hidden !important;
 }
 
 #div_main {
@@ -49,4 +49,10 @@ body {
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+}
+
+.box_campos {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 4px 18px 6px rgba(127, 128, 201, 0.7) !important;
 }
