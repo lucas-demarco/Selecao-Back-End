@@ -15,16 +15,6 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <style>
-        html {
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Nunito', sans-serif;
-
-        }
 
         #div_products {
             background: rgba(0, 0, 0, 0.5);
@@ -149,58 +139,88 @@
             color: #86bd57;
             font-size: 110%;
         }
+
+        #DivMessage {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .flash-message {
+            padding: 15px;
+            margin-right: 20px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: auto;
+            max-width: 90%;
+        }
+
+        .flash-message i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .flash-message .close-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #721c24;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body class="antialiased">
 
-        <div class="bg-gray-100">
-            @include('layouts.navigation')
-        </div>
+    <div class="bg-gray-100">
+        @include('layouts.navigation')
+    </div>
 
-        <div style="width: 65%; margin: 0 auto;">
-            <h2>Lançamentos <b>Recentes</b></h2>
-            <div id="div_products" class="item active">
-                <div class="row row_cards">
+    <div style="width: 65%; margin: 0 auto;">
+        <h2>Lançamentos <b>Recentes</b></h2>
+        <div id="div_products" class="item active">
+            <div class="row row_cards">
+                @foreach($produtos as $produto)
                     <div class="cards">
                         <div class="thumb-wrapper">
                             <div class="img-box">
-                                <img src="img/ipad.jpg" class="img-responsive" alt="">
+                                <img src="img/{{ $produto->imagem }}.jpg" class="img-responsive" alt="">
                             </div>
                             <div class="thumb-content">
-                                <h4>Apple iPad</h4>
-                                <p class="item-price"><strike>$400.00</strike> <span>$369.00</span></p>
+                                <h4>{{ $produto->nome }}</h4>
+                                <p class="item-price"><strike>R$ {{ number_format($produto->preco, 2, ',', '.') }}</strike> 
+                                <span>R$ {{ number_format($produto->preco - $produto->desconto, 2, ',', '.') }}</span></p>
                                 <a href="#" class="btn btn-primary">Ver Detalhes</a>
                             </div>
                         </div>
                     </div>
-                    <div class="cards">
-                        <div class="thumb-wrapper">
-                            <div class="img-box">
-                                <img src="img/headphone.jpg" class="img-responsive" alt="">
-                            </div>
-                            <div class="thumb-content">
-                                <h4>Sony Headphone</h4>
-                                <p class="item-price"><strike>$25.00</strike> <span>$23.99</span></p>
-                                <a href="#" class="btn btn-primary">Ver Detalhes</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="thumb-wrapper">
-                            <div class="img-box">
-                                <img src="img/macbook-air.jpg" class="img-responsive" alt="">
-                            </div>
-                            <div class="thumb-content">
-                                <h4>Macbook Air</h4>
-                                <p class="item-price"><strike>$899.00</strike> <span>$649.00</span></p>
-                                <a href="#" class="btn btn-primary">Ver Detalhes</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
+    </div>
+    <div id="DivMessage">
+        @if (session('error'))
+            <div class="flash-message error">
+                <i class="fas fa-exclamation-circle"></i> {{ session('error') }}
+                <button class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+            </div>
+        @endif
+
+        @if (session('success'))
+            <div class="flash-message success">
+                <i class="fas fa-check-circle"></i> {{ session('success') }}
+                <button class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+            </div>
+        @endif
+    </div>
 </body>
 
 </html>
