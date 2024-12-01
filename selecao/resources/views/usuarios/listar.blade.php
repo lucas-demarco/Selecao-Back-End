@@ -48,8 +48,8 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at }}</td>
-                    <td>{{ $user->dt_exclusao > 0 ? Auth::id() : Auth::id() }}</td>
+                    <td>{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i:s') }}</td>
+                    <td>{{ $user->dt_exclusao > 0 ? 'Inativo' : 'Ativo' }}</td>
                     <td>
                         <a href="{{ route('users.edit', ['id'=>$user->id]) }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-user-edit"></i>

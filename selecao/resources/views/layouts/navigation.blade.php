@@ -16,6 +16,11 @@
                         <x-nav-link :href="route('produtos')" :active="request()->routeIs('produtos')">
                             {{ __('Produtos') }}
                         </x-nav-link>
+                        <?php if ( Auth::user()->userType == 1) { ?>
+                            <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                                {{ __('usuarios') }}
+                            </x-nav-link>
+                        <?php } ?>
                     @else
                         <x-nav-link :href="route('login')">
                             {{ __('login') }}

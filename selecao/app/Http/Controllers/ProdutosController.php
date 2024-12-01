@@ -12,4 +12,11 @@ class ProdutosController extends Controller
         $produtos = Produto::all();
         return view('produtos', ['produtos' => $produtos]);
     }
+
+    public function visualizar($id)
+    {
+        $produto = Produto::where('id', $id)->first();
+        $valor = $produto->preco - $produto->desconto;
+        return view('produto', ['produto' => $produto, 'valor' => $valor]);
+    }
 }

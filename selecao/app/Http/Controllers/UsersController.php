@@ -39,6 +39,9 @@ class UsersController extends Controller
     {
         if ($request->password == $request->password_confirmation) {
             $senha = Hash::make($request->password);
+        } else {
+            session()->flash('error', 'As senhas devem ser iguais!');
+            return redirect('users.edit'); 
         }
 
         $data = [
@@ -49,7 +52,8 @@ class UsersController extends Controller
         ];
 
         User::where('id', $id)->update($data);
-        return redirect()->route('users.index');
+        session()->flash('success', 'Senha alterada com sucesso.');
+        return redirect('/');
     }
 
     public function ativar_inativar($id)

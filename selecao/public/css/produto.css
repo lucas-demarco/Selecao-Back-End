@@ -1,0 +1,237 @@
+#div_products {
+    width: 65%;
+    margin: 1% auto;
+    border-radius: 15px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 18px 6px rgba(127, 128, 201, 0.7);
+}
+
+.sub_div {
+    background-color: #FFF;
+    display: flex;
+    border-radius: 15px 15px 0px 15px;
+}
+
+#sub_div_product {
+    align-items: center;
+    height: 300px;
+}
+
+#sub_div_comments {
+    background-color: #f0ecec;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 30rem;
+    padding: 20px;
+}
+
+.item img {
+    width: 16rem;
+}
+
+#informacoes {
+    width: 30%;
+    padding: 2rem 0
+}
+
+#btn_comprar {
+    padding: 11px 30px;
+    background-color: #000;
+    color: #FFF;
+    border-radius: 25px;
+    font-size: 18px;
+}
+
+#nome {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#valores {
+    width: 45%;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5rem;
+}
+
+#valor_final {
+    font-weight: bold;
+    font-size: 25px;
+    color: green;
+}
+
+.stars {
+    font-size: 15px;
+    color: gold;
+    letter-spacing: -2px;
+}
+
+.wrapper {
+    width: 25%;
+    height: 22rem;
+    padding: 0.3rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 15px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin: 1% auto;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+}
+
+.wrapper .title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #c9c8e2;
+}
+
+.rate-box {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.1rem;
+}
+
+.rate-box input {
+    display: none;
+}
+
+.rate-box input:hover~.star:before {
+    color: rgba(255, 204, 51, 0.5);
+}
+
+.rate-box input:active+.star:before {
+    transform: scale(0.9);
+}
+
+.rate-box input:checked~.star:before {
+    color: #ffcc33;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3), -3px -3px 8px rgba(255, 255, 255, 0.8);
+}
+
+.rate-box .star:before {
+    content: "★";
+    display: inline-block;
+    font-family: "Potta One", cursive;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #0000;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+    background-color: #aaa;
+    background-clip: text;
+    -webkit-background-clip: text;
+    transition: all 0.3s;
+}
+
+#comentario {
+    border: none !important;
+    resize: none !important;
+    width: 100% !important;
+    padding: 0.2rem !important;
+    color: inherit !important;
+    font-family: inherit !important;
+    line-height: 1.5 !important;
+    border-radius: 0.2rem !important;
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.3), inset -2px -2px 8px rgb(99 90 90 / 80%) !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.submit-btn {
+    padding: 0.2rem 0.5rem;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3), -3px -3px 8px rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: rgb(124 134 197 / 80%);
+    transition: all 0.2s;
+    margin: 10px 0;
+}
+
+.submit-btn:active {
+    transform: translate(2px, 2px);
+}
+
+#form_comentario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div_comentario {
+    margin-left: 1.8rem;
+    background-color: #dddddd;
+    padding: 5px 10px;
+    border-radius: 0px 20px 20px 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;  /* Garante que o conteúdo não vaze para fora */
+    transition: height 0.3s ease;
+}
+
+input:focus {
+    box-shadow: 0 0 0 0 !important;
+    border: 0 none !important;
+    outline: 0 !important;
+}
+
+.dt_postagem {
+    font-size: 10px;
+    text-align: right;
+    margin: 0 5px;
+    width: 10.5rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 0px 20px 20px 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-height: 80%;
+    border-radius: 15px;
+    overflow-y: auto; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#div_close {
+    display: flex;
+    height: 2rem;
+    justify-content: flex-end;
+}
+
+.editar_comentario {
+    border: none !important;
+    resize: none !important;
+    width: 100% !important;
+    background-color: transparent;
+    overflow: hidden;
+}
