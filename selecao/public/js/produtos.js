@@ -24,7 +24,7 @@ $(document).ready(function () {
             }
         },
         error: function (xhr, status, error) {
-            alert(r.message);
+            alert('Ocorreu um erro ao buscar os comentários, por favor contate o desenvolvedor.');
         }
     });
 
