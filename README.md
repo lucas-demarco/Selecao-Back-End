@@ -1,64 +1,41 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Sistema de Comentários - Seleção Back-End
+Bem-vindo! Este é um sistema desenvolvido para gerenciar comentários sobre produtos. Apesar do objetivo inicial ser apenas a criação de uma API, desenvolvi um site completo para apresentar as funcionalidades. Ainda assim, acredito que o projeto se alinha ao cenário solicitado.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+#### Pré-requisitos:
+- Um gerenciador de banco de dados (como XAMPP ou similar);
+- Composer instalado em sua máquina;
+- PHP versão 7.3 ou superior.
 
-## About Laravel
+#### O sistema já possui um usuário administrador pré-cadastrado:
+- Email: admin@admin.com
+- Senha: admin
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#### Passo a passo para executar o projeto:
+- Clone o repositório:
+``` git clone <url-do-repositorio> ```
+``` cd <pasta-do-projeto> ```
+- Instale as dependências: 
+``` composer install ```
+- Verifique se o arquivo .env possui uma chave gerada no campo "APP_key". Caso não tenha, execute o comando abaixo para gerar uma:
+``` php artisan key:generate ```
+- No gerenciador de bancos de dados, crie um banco chamado "selecao";
+- No terminal do projeto execute as migrations e os seeders:
+- ``` php artisan migrate ``` 
+- ``` php artisan db:seed ```
+- Inicie o servidor utilizando o seguinte código: 
+``` php artisan serve ```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Funcionalidades do Sistema
+#### Obrigatórias:
+- Registro de usuários, login e gerenciamento de usuários (disponível apenas para administradores);
+- Para a autenticação de usuários estou usando a biblioteca Livewire do Laravel;
+- Ao acessar um produto do sistema é possível ver todos os comentarios inseridos e o formulario para envio de comentário, porém só será acessível se o usuario estiver logado no sistema;
+- Junto do comentário está o nome do autor e a data em que o comentário foi postado/editado;
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Desejáveis:
+- Quando o usuario estiver logado será possivel editar/excluir os próprios comentários, além de também poder alterar suas informações de login clicando no botão "Meu usuario" na direita superior;
+- O histórico dos comentários está disponivel a qualquer usuário clicando no botão acima do comentario com o icone de relógio;
+- O usuário administrador pode excluir qualquer comentário além de poder tambem inativar ou excluir usuarios do sistema;
+- Senhas dos usuários são armazenadas de forma criptografada;
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Com este projeto, espero atender às expectativas da seleção. Sinta-se à vontade para entrar em contato em caso de dúvidas ou sugestões.
