@@ -89,9 +89,21 @@ $(document).ready(function () {
         }
     });
 
+    /* Ações para a modal */
+    let modal = $("#modal_comentarios");
+
+    $(document).on('click', '.close', function () {
+        modal.css('display', 'none');
+    });
+
+    $(window).on("click", function (event) {
+        if ($(event.target).is(modal[0])) {
+            modal.css('display', 'none');
+        }
+    });
+
     // Requisição para listar o histórico de comentarios.
     $(document).on('click', '.btn-historico', function () {
-        let modal = $("#modal_comentarios");
         let id = $(this).attr('comentario');
         let url = $("#url_hist_comentarios").val().replace(':id', id);
         
@@ -135,16 +147,6 @@ $(document).ready(function () {
         });
     }
 
-    /* Ações para a modal */
-    $(document).on('click', '.close', function () {
-        modal.css('display', 'none');
-    });
-
-    $(window).on("click", function (event) {
-        if ($(event.target).is(modal[0])) {
-            modal.css('display', 'none');
-        }
-    });
     setTimeout(function() {
         $(".editar_comentario").each(function () {
             $(this).css('height', $(this).prop('scrollHeight') + 'px');

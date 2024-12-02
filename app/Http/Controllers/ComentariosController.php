@@ -16,8 +16,8 @@ class ComentariosController extends Controller
                         ->where('comentarios.id_produto', $id)
                         ->select('comentarios.*',
                             'users.name',
-                            DB::raw("DATE_FORMAT(comentarios.created_at, '%d/%m/%Y') as data_formatada"),
-                            DB::raw("DATE_FORMAT(comentarios.created_at, '%H:%i:%s') as horario_formatado"),
+                            DB::raw("DATE_FORMAT(comentarios.updated_at, '%d/%m/%Y') as data_formatada"),
+                            DB::raw("DATE_FORMAT(comentarios.updated_at, '%H:%i:%s') as horario_formatado"),
                             DB::raw("
                                 CASE 
                                     WHEN EXISTS (
